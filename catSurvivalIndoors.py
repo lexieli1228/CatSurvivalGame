@@ -59,6 +59,7 @@ def cSIIndoorGameOver():
         cSContinue = input("")
         while cSContinue != "":
             cSContinue = input("")
+        return
     else:
         print("你死了")
         cSContinue = input("")
