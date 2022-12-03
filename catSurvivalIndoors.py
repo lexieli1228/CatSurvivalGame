@@ -59,6 +59,7 @@ def cSIIndoorGameOver():
         cSContinue = input("")
         while cSContinue != "":
             cSContinue = input("")
+        cSISurvival = 0
         return
     else:
         print("你死了")
@@ -69,8 +70,7 @@ def cSIIndoorGameOver():
         cSContinue = input("")
         while cSContinue != "":
             cSContinue = input("")
-    cSISurvival = 0
-    return
+        return
 
 # 每日场景的第一个选择
 def cSIDayInfoChoice():
