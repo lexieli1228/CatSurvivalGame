@@ -32,6 +32,10 @@ cSICurrChickenDay = 0
 # 猫的特性
 cSIMilkAllergy = -1
 
+# 猫薄荷数量和食用状态
+cSICatnip = 10
+cSICurrCatnipDay = 0
+
 # 打印结束状态
 def cSIIndoorGameOver():
     global cSISurvival
@@ -128,6 +132,8 @@ def cSICatFood():
     global cSIStrength
     global cSISkills
     global cSISurvival
+    global cSICurrCatnipDay
+    cSICurrCatnipDay = 0
     cSIStrength -= 9
     if cSIStrength < 30:
         cSISurvival = 0
@@ -151,6 +157,8 @@ def cSIEatChicken():
     global cSIFridgeFoodCnt
     global cSISurvival
     global cSIStrength
+    global cSICurrCatnipDay
+    cSICurrCatnipDay = 0
     
     cSICurrChickenDay += 1
     cSIChicken -= 1
@@ -243,6 +251,8 @@ def cSIEatMilk():
     global cSISurvival
     global cSIStrength
     global cSIMilkAllergy
+    global cSICurrCatnipDay
+    cSICurrCatnipDay = 0
     
     cSICurrChickenDay = 0
     cSICurrMilkDay += 1
@@ -333,6 +343,8 @@ def cSIEatRaisin():
     global cSIFridgeFoodCnt
     global cSISurvival
     global cSIStrength
+    global cSICurrCatnipDay
+    cSICurrCatnipDay = 0
     cSIRaisin -= 1
     cSIFridgeFoodCnt -= 1
     cSICurrRaisinDay += 1
@@ -421,6 +433,8 @@ def cSIEatChocolateOrCoffee():
     global cSIFridgeFoodCnt
     global cSISurvival
     global cSIStrength
+    global cSICurrCatnipDay
+    cSICurrCatnipDay = 0
     cSIFridgeFoodCnt -= 1
     print("你吃了一点")
     cSContinue = input("")
@@ -620,13 +634,162 @@ def cSIFridge():
         cSContinue = input("") 
     cSIFridgeFoodChoice()
 
+# 选择今日吃草
 def cSIPlant():
     global cSIStrength
     global cSISkills
     global cSISurvival
+    global cSICatnip
+    global cSICurrCatnipDay
+    cSICatnip -= 1
+    cSICurrCatnipDay += 1
     
+    # 连续吃了太多猫薄荷，精神恍惚而亡
+    if cSICurrCatnipDay >= 4:
+        print("你吃了太多猫薄荷")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("它让你飘飘欲仙")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("但你太久没有正常进食了...")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("今朝有酒今朝醉")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("这种情况下你也想不到太多")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("猫薄荷让你陷入了混沌")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("但仿佛逐渐饥饿的感觉也没有了...")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("恍惚中，你好像回到了自己是一只小猫的时候")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("主人第一次拿猫薄荷给你，你兴奋地蹭着")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你多开心啊...")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("......")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        cSISurvival = 0
+        print("......")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        return
+    print("......")
+    cSContinue = input("")
+    while cSContinue != "":
+        cSContinue = input("")
+    possibility = rand.randint(0, 2)
+    # 上蹿下跳，消耗体力
+    if possibility % 1:
+        print("你陷入了兴奋")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你一点都不感觉饿了！")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你获得了无上的力量！！！")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你是方圆n里最威猛的大侠！！！")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你是方圆n里最威猛的大侠！！！")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("哈！！！")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("你上蹿下跳，消耗了一些体力")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        cSIStrength -= 5
+        print("你的体力变成了{}".format(cSIStrength))
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        if cSIStrength <= 30:
+            cSISurvival = 0
+            print("但好像，你努力跳，也没办法跳起来了")
+            cSContinue = input("")
+            while cSContinue != "":
+                cSContinue = input("")
+            print("猫薄荷的亢奋让你扭动")
+            cSContinue = input("")
+            while cSContinue != "":
+                cSContinue = input("")
+            print("你逐渐大脑一片空白，失去了意识......")
+            cSContinue = input("")
+            while cSContinue != "":
+                cSContinue = input("")
+        return
+    # 昏睡
+    else:
+        print("你飘飘欲仙")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("嘴里咀嚼着，沉寂中昏睡")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("没有摄食其他食物，你的体力值在下降")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        print("但睡眠让你感觉良好")
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        cSIStrength -= 1
+        print("你的体力变成了{}".format(cSIStrength))
+        cSContinue = input("")
+        while cSContinue != "":
+            cSContinue = input("")
+        if cSIStrength <= 30:
+            cSISurvival = 0
+            print("你觉得冷起来了")
+            cSContinue = input("")
+            while cSContinue != "":
+                cSContinue = input("")
+            print("你逐渐大脑一片空白，失去了意识......")
+            cSContinue = input("")
+            while cSContinue != "":
+                cSContinue = input("")
+        return 
+
+# 室内逻辑    
 def cSIIndoorLogic():
     global cSIFridgeFoodCnt
+    global cSICatnip
     print("处于对环境的熟悉，你留在了室内")
     cSContinue = input("")
     while cSContinue != "":
@@ -655,7 +818,10 @@ def cSIIndoorLogic():
                 print("可惜的是，冰箱里的食物已经被吃光了")
         else:
             indoorChoiceState = 1
-            cSIPlant()
+            if cSICatnip > 0:
+                cSIPlant()
+            else:
+                print("可惜的是，没有植物供你进行啃食")
         return
 
 def cSIndoorMain(cSDayCnt, cSStrength, cSSkills):
